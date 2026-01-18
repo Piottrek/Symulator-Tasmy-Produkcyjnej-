@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Symulator Taśmy Produkcyjnej</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <header>
+        <h1>Symulator Taśmy Produkcyjnej</h1>
+        <div class="subtitle"> </div>
+    </header>
+
+    <section class="controls">
+        <div class="controls-left">
+            <div class="field-group">
+                <label for="taskName">Nowe zadanie</label>
+                <input type="text" id="taskName" placeholder="Nazwa nowego zadania…">
+            </div>
+
+            <div class="field-group">
+                <label for="taskPriority" class="label-muted">
+                    Priorytet
+                </label>
+                <input type="checkbox" id="taskPriority">
+            </div>
+
+            <button id="btnAddTask" class="btn-primary">
+                ➕ Dodaj zadanie
+            </button>
+        </div>
+
+        <div class="controls-right">
+            <button id="btnStrategyFifo" class="btn-ghost active">FIFO</button>
+            <button id="btnStrategyPriorytet" class="btn-ghost">Priorytet</button>
+            <button id="btnUndo" class="btn-ghost">↩ Cofnij</button>
+        </div>
+    </section>
+
+    <section class="board">
+        <div class="column" id="col-NOWE">
+            <div class="column-title"> Nowe</div>
+            <div id="list-NOWE"></div>
+        </div>
+
+        <div class="column" id="col-W_TOKU">
+            <div class="column-title">⚙ W toku</div>
+            <div id="list-W_TOKU"></div>
+        </div>
+
+        <div class="column" id="col-ZAKONCZONE">
+            <div class="column-title">✅ Zakończone</div>
+            <div id="list-ZAKONCZONE"></div>
+        </div>
+    </section>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+
+<script src="/js/app.js"></script>
+</body>
+</html>
